@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        /* Embedded CSS for styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #2e2e2e;
+            padding: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #f05454;
+        }
+
+        .instructions {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .morse-chart {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+            border: 2px solid #f05454;
+            border-radius: 5px;
+        }
+
+        .puzzle {
+            background: #444;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .code-row, .input-row {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .code-row p, .input-row p {
+            font-size: 1.2rem;
+        }
+
+        input[type="text"] {
+            width: 60%;
+            padding: 5px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        button {
+            background: #f05454;
+            color: #fff;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #d94343;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🔍 Task 1 🔍</h1>
+        <p class="instructions">Use the Morse code chart below to decode the phrase. Input the correct letters to solve the puzzle!</p>
+        <img src="image.png" alt="Morse Code Chart" class="morse-chart">
+
+        <!-- Puzzle Section -->
+        <div class="puzzle">
+            <div class="code-row">
+                <p>Morse Code:</p>
+                <span>- .... . / .--. .- -.-. -.- .- --. .</span> <!-- "THE PACKAGE" in Morse Code -->
+            </div>
+            <div class="input-row">
+                <p>Your Answer:</p>
+                <input type="text" id="userInput" placeholder="Enter decoded phrase">
+                <button onclick="checkAnswer()">Submit</button>
+            </div>
+            <div id="resultMessage" class="message"></div>
+        </div>
+    </div>
+
+    <script>
+        // Embedded JavaScript for functionality
+        function checkAnswer() {
+            const correctAnswer = "THE PACKAGE"; // Correct decoded phrase
+            const userInput = document.getElementById("userInput").value.toUpperCase();
+            const resultMessage = document.getElementById("resultMessage");
+
+            if (userInput === correctAnswer) {
+                resultMessage.textContent = "🎉 You have solved Task 1!";
+                resultMessage.style.color = "#4caf50"; // Green for success
+            } else {
+                resultMessage.textContent = "❌ Incorrect. Try again!";
+                resultMessage.style.color = "#f05454"; // Red for failure
+            }
+        }
+    </script>
+</body>
+</html>
